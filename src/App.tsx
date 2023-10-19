@@ -10,16 +10,20 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
+      templateColumns={{
+        base: "1fr", // took all the screen space
+        lg: "200px 1fr", // sidebar took 200px and main took up all the rest
+      }}
     >
       <GridItem area="nav">
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside">
+        <GridItem area="aside" paddingX={5}>
           <GenreList />
         </GridItem>
       </Show>
-      <GridItem area="main">
+      <GridItem area="main" paddingX={5}>
         <GameGrid />
       </GridItem>
     </Grid>
